@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js_toggle</title>
+    <style>
+        body {
+            text-align: center;
+        }
+    </style>
+    <script>
+        /* 왜 망할 함수로 작성하면 안먹는지 알아낼것. 생각대로라면 this함수는 현재를 반영하는거니 input의 value가 아니라 함수의 value를 찾아서 안먹는듯.. */
+
+        /* 알아냄 this는 this가 소속된 태그 (ex:<>)를 가르키게 약속되어 있는데 내가 function으로 함수를 만들어 빼니 this는 내가 원하던 input 태그를
+
+        가르키는 것이 아닌 function nightDayHendler를 가르키고 있어서 처음 this를 사용한 부분인 input의 this.value = 'day or night' 부분을 인식못한거지
+        
+        input을 향한게 아니라 function 함수를 가르키고 있었으니 function(함수) 어디에도 함수의 결과값(this.value) 이 'day' 나 'night' 인 부분이 없으니
+        
+        value값인 'day' , 'night'가 변경되지 못했던것이다. ps.공부좀 더하자 this를 아직도 잘모르겠음 return은 덤 ㅅㅂ.
+        
+        정확히는 this객체는 전역객체를 가르킨다한다. window라는데 아직은 모르것음*/
+
+        /* function(함수) + nightDayHandler(함수이름) + (self)(매개변수) */
+        function nightDayHandler(self) {
+
+        var target = document.querySelector('body');
+        var target_img = document.getElementById('cover_img');
+
+        if(self.value === 'night'){
+            target.style.backgroundColor = 'black';
+            target.style.color = 'white';
+            target_img.style.borderColor = 'white';
+            self.value = 'day';
+        } else {
+            target.style.backgroundColor = 'white';
+            target.style.color = 'black';
+            target_img.style.borderColor = 'black';
+            self.value = 'night';
+        }
+    }
+    </script>
+</head>
+<body>
+    <h1>Addicted - Hazbin_Hotel</h1>
+    <input type="button" value="night" style="width: 100px; height: 50px;" onclick="nightDayHandler(this);"> 
+    <br>
+    <br>
+    <a href="https://www.youtube.com/watch?v=ulfeM8JGq7s" target="blank"><img id="cover_img" src="C:\Jhin_Project\Egoing_Ajax\Angel_Dust.jpg" alt="Addicted" style="border: 1px solid black;" width="500px" height="300px;"></a>
+    <p>
+        [VERSE 1: MICHAEL KOVACH] <br>
+        Til death do us part <br>
+        죽음이 우릴 갈라놓을 때까지 <br>
+        But we're already past that phase <br>
+        하지만 이미 그 단계는 지나버렸지 <br>
+        <br>
+        This is a brand new start <br>
+        이제는 새출발이야 <br>
+        And I think I deserve some praise <br>
+        내가 이 정도면 <br>
+        For the way that I am <br>
+        찬사받을 만하다고 생각해 <br> <br>
+        Despite having overdosed <br>
+        과다복용하고 <br>
+        And ending up comatose <br>
+        혼수상태에 빠져버렸지만 <br>
+        I don't give a damn <br>
+        그딴건 좃도 신경안써 <br>
+        I've let my emotions go <br>
+        감정따위 다 풀어해쳐 <br>
+        Fuck being a sober hoe <br>
+        정신말짱한 창녀는 좃같잖아 <br>
+        This is the mantra, this is my life you're playing with now til the end of the night <br>
+        이게 내 인생 격언이고, 이 밤이 끝날때까지 네가 가지고 노는 내 인생이니까 <br>
+        Surrounded by fire the passion ignites, a hit of that heaven and hell, a helluva high <br>
+        불꽃에 휩싸여 열정을 불태워, 천국과 지옥을 오가는 끝내주는 최고조의 기분 <br>
+        <br>
+        [CHORUS: MIKE & CHI-CHI] <br>
+        I'm addicted to the madness <br>
+        광기에 중독되어버려 <br>
+        This hotel is my Atlantis <br>
+        이 호텔은 나만의 아틀란티스 <br>
+        We're forever gonna have a fucking reason to sin <br>
+        어차피 우리 모두 영원히 죄지을 좃같은 이유가 있으니까 <br>
+        Let me leave my soul to burn and I'll be breathing it in <br>
+        내 영혼이 불타버려 들이마실 수 있을때까지 <br>
+        <br>
+        I'm addicted to the feeling <br>
+        이 느낌에 중독되어버려 <br>
+        Getting higher than the ceiling <br>
+        천장을 뚫을만큼 끝내주는 기분 <br>
+        And we're never gonna want this fucking feeling to end <br>
+        이 기분이 절대로 안끝났으면 좋겠어 <br>
+        Just concede and give in to your inner demons again <br>
+        포기하고 다시한번 네 안의 악마들을 받아들여 <br>
+        <br>
+        [VERSE 2: CHI-CHI] <br>
+        Yeah you fell in love <br>
+        그래 넌 사랑에 빠졌어 <br>
+        But you fell deeper in this pit <br>
+        하지만 이 늪에 더 깊이 빠졌지 <br>
+        While death rains from above <br>
+        죽음이 비처럼 쏟아지는 동안 <br>
+        So count your blessings cause this is it <br>
+        운좋게 생각해 이게 다니까 <br>
+        You’re not letting it go <br>
+        넌 놓지 않을 거니까 <br>
+        So what if I misbehave <br>
+        나쁜 짓좀 하면 어때 <br>
+        It's what everybody craves <br>
+        다들 원하는 거잖아 <br>
+        You already know <br>
+        너도 알고 있지 <br>
+        So come if you're feeling brave <br>
+        그러니까 배짱 좀 있다면, <br>
+        And fancy yourself a mate <br>
+        파트너를 원한다면 와봐 <br>
+        You want it, I got it, see what you like? We could have it all by the end of the night <br>
+        네가 원하는 걸 가지고 있으니까, 어때? 이 한밤이 끝나기전에 우린 모든 걸 가질 수 있어 <br>
+        Your money and power, my sinful delight, a hit of that heaven and hell, a helluva high <br>
+        네 돈과 권력, 내 죄악스런 기쁨, 천국과 지옥을 오가는 끝내주는 최고조의 기분 <br>
+        <br>
+        [CHORUS: MIKE & CHI-CHI] <br>
+        I'm addicted to the madness <br>
+        광기에 중독되어버려 <br>
+        This hotel is my Atlantis <br>
+        이 호텔은 나만의 아틀란티스 <br>
+        We're forever gonna have a fucking reason to sin <br>
+        어차피 우리 모두 영원히 죄지을 좃같은 이유가 있으니까 <br>
+        Let me leave my soul to burn and I'll be breathing it in <br>
+        내 영혼이 불타버려 들이마실 수 있을때까지 <br>
+        <br>
+        I'm addicted to the feeling <br>
+        이 느낌에 중독되어버려 <br>
+        Getting higher than the ceiling <br>
+        천장을 뚫을만큼 끝내주는 기분 <br>
+        And we're never gonna want this fucking feeling to end <br>
+        이 기분이 절대로 안끝났으면 좋겠어 <br>
+        Just concede and give in to your inner demons again <br>
+        포기하고 다시한번 네 안의 악마들을 받아들여 <br>
+        Just concede and give in to your inner demons again <br>
+        포기하고 다시한번 네 안의 악마들을 받아들여 <br>
+        I'm addicted to the feeling <br>
+        이 느낌에 중독되어버려 <br>
+        <br>
+        Getting higher than the ceiling <br>
+        천장을 뚫을만큼 끝내주는 기분 <br>
+        And we're never gonna want this fucking feeling to end <br>
+        이 기분이 절대로 안끝났으면 좋겠어 <br>
+        Just concede and give in to your inner demons again <br>
+        포기하고 다시한번 네 안의 악마들을 받아들여 <br>
+        <br>
+        [VERSE 3: MICHAEL KOVACH] <br>
+        I'm addicted <br>
+        내일 아침이면 <br>
+        To the sorrow <br>
+        흥도 깨져버리고 <br>
+        When the buzz ends <br>
+        이 슬픔에 <br>
+        By tomorrow <br>
+        중독되어버려 <br>
+        <br>
+        There's another rush of poison <br>
+        또다시 내 핏줄안에 <br>
+        Flowing into my veins <br>
+        독극물이 퍼져나가 <br>
+        Giving me a dose of pleasure <br>
+        고통과 같이 공존하는 <br>
+        That resides by the pain <br>
+        즐거움을 주네 <br>
+        <br>
+        I'm addicted <br>
+        중독되어버려 <br>
+        I'm dependent <br>
+        의존할수밖에 없어 <br>
+        Looking awesome, feeling helpless <br>
+        멋져보이지만, 무력함을 느껴 <br>
+        And I know I'm raising Cain <br>
+        나도 알아, 지옥 사방곳곳에서 <br>
+        By every highway in hell <br>
+        카인처럼 깽판치고 있다는 <br>
+        <br>
+        Maybe things won't be so terrible <br>
+        어쩌면 이 호텔 안에서는 <br>
+        Inside this hotel <br>
+        모든 게 덜 끔찍할지도 몰라 <br>
+    </p>
+</body>
+</html>
